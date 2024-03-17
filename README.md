@@ -1,14 +1,16 @@
-# X Clone
+# X Clone Notes
 
 ## macOS Setup
 * `brew install postgresql`
 * `brew services start postgresql`
 * `rails new x-clone -T -d postgresql --css=bootstrap`
 * `./bin/dev`
-* `gem install rubocup`
+
+# gems
+* `gem install rubocup` - linter
+* `gem install devise` - authentication + authorization
 
 ## Authentication + Authorization: devise
-* `gen "devise"`
 * `bundle install`
 * `bundle exec rails generate devise:install`
 * `bundle exec rails g devise user`
