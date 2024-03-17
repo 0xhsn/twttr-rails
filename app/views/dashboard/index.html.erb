@@ -1,0 +1,21 @@
+<head>
+  <title>XClone - Timeline</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<div class="container py-5" style="max-width: 540px">
+<h1>timeline yay! :D</h1>
+
+  <%= form_with model: Tweet.new, url: tweets_path, method: :post, local: true do |f| %>
+    <%= f.text_field :body, class: 'form-control mb-3' %>
+    <%= f.submit 'tweet', class: 'btn btn-outline-primary' %>
+  <% end %>
+
+  <ul>
+    <% Tweet.find_each do |tweet| %>
+      <li><%= tweet.body %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Sign out', destroy_user_session_path,  data: { "turbo-method": :delete }, class: "btn btn-primary mb-3" %>
+</div>
