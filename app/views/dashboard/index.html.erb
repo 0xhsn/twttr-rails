@@ -1,20 +1,17 @@
-<head>
-  <title>XClone - Timeline</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-</head>
-<div class="container py-5" style="max-width: 540px">
-<h1>welcome, @<%= current_user.username %>!</h1>
-  <%= form_with model: Tweet.new, url: tweets_path, method: :post, local: true do |f| %>
-    <%= f.text_field :body, class: 'form-control mb-3' %>
-    <%= f.submit 'tweet', class: 'btn btn-outline-primary btn-sm' %>
-  <% end %>
-
-  <ul>
-    <% Tweet.find_each do |tweet| %>
-      <li><%= tweet.body %></li>
-    <% end %>
-  </ul>
-  <%= button_to 'sign out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-primary btn-sm' %>
-</div>
-
-
+<!DOCTYPE html>
+<html>
+  <%= render "shared/head" %>
+  <div class="container py-2">
+    <div class="row">
+      <%= render "shared/sidebar" %>
+      <div class="col-7">
+        <%= render "shared/tweet_form" %>
+        <% Tweet.find_each do |tweet| %>
+          <%= render "tweets/tweet", tweet: tweet %>
+        <% end %>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+  <html>
