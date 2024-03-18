@@ -1,0 +1,14 @@
+aside.col.side-navbar {
+  a {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-direction: column;
+    // height: 100vh; /* This makes the aside element take the full height of the viewport */
+    text-decoration: none;
+    color: black;
+    div:hover {
+      background-color: $gray-200;
+    }
+  }
+}
