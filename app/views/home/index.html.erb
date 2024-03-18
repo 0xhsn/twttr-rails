@@ -1,5 +1,9 @@
-<div class="container py-5" style="max-width: 540px">
-  <h1>🤙🏻 sup</h1>
-  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-sm" %>
-  <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-primary btn-sm" %>
+<div class="container text-center py-5" style="max-width: 540px">
+  <div class="mb-3">
+  <%= image_tag "doge.png", width: "100" %>
+  </div>
+  <div>
+  <%= link_to "sign up", new_user_registration_path, class: 'btn btn-dark btn-sm mb-4 rounded-pill tweet-btn' %>
+  <%= link_to "sign in", new_user_session_path,class: 'btn btn-dark btn-sm mb-4 rounded-pill tweet-btn' %>
+  <div>
 </div>
