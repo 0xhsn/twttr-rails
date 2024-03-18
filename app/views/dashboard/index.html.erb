@@ -3,7 +3,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <div class="container py-5" style="max-width: 540px">
-<h1>timeline yay! :D</h1>
+<h1>welcome, @<%= current_user.username %>!</h1>
   <%= form_with model: Tweet.new, url: tweets_path, method: :post, local: true do |f| %>
     <%= f.text_field :body, class: 'form-control mb-3' %>
     <%= f.submit 'tweet', class: 'btn btn-outline-primary btn-sm' %>
@@ -14,7 +14,7 @@
       <li><%= tweet.body %></li>
     <% end %>
   </ul>
-  <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-primary btn-sm' %>
+  <%= button_to 'sign out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-primary btn-sm' %>
 </div>
 
 
