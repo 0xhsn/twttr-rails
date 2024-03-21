@@ -1,0 +1,10 @@
+<div class="container py-5" style="max-width: 540px">
+  <h1>Settings</h1>
+  <%= form_with model: current_user, local: true, url: update_settings_path, method: :patch do |f| %>
+    <div class="mb-3">
+      <%= f.label :avatar, class: "form-label" %>
+      <%= f.file_field :avatar, class: "form-control" %>
+    </div>
+    <%= f.submit "Save", class: 'btn btn-dark btn-md mb-4 rounded-pill tweet-btn' %>
+  <% end %>
+</div>

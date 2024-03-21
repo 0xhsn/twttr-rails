@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   resources :tweets, only: :create
 
   get :dashboard, to: 'dashboard#index'
+
+  get :settings, to: 'settings#index'
+  patch '/settings', to: 'settings#update', as: :update_settings
 end

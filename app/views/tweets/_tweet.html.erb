@@ -1,10 +1,19 @@
 <%= turbo_frame_tag dom_id(tweet) do %>
-  <div class="tweet py-4 px-4">
-    <% if Time.zone.now - tweet.created_at > 1.day %>
-      <p>@<%= tweet.user.username %> - <%= tweet.created_at.strftime("%b %-d") %></p>
-    <% else %>
-      <p>@<%= tweet.user.username %> - <%= time_ago_in_words(tweet.created_at) %> ago</p>
-    <% end %>
-    <p class="mb-0"><%= tweet.body %></p>
+  <div class="tweet py-4 px-3 d-flex align-items-center">
+    <div class="flex-shrink-0 me-3">
+      <% if tweet.user && tweet.user.avatar.attached? %>
+        <%= image_tag tweet.user.avatar, size: 48, class: "rounded-circle" %>
+      <% else %>
+        <%= image_tag "default_avatar.png", size: 48, class: "rounded-circle" %>
+      <% end %>
+    </div>
+    <div class="flex-grow-1">
+      <% if Time.zone.now - tweet.created_at > 1.day %>
+        <span class="mb-1">@<%= tweet.user.username %></span>&nbsp;<span class="date-time fw-light text-secondary">• <%= tweet.created_at.strftime("%b %-d") %></span>
+      <% else %>
+        <span class="mb-1">@<%= tweet.user.username %></span>&nbsp;<span class="date-time fw-light text-secondary">• <%= time_ago_in_words(tweet.created_at) %> ago</span>
+      <% end %>
+      <p class="mb-0 ml-1 text-dark tweet-body"><%= tweet.body %></p>
+    </div>
   </div>
 <% end %>
