@@ -20,3 +20,20 @@
 .tiny-text {
   font-size: 11px;
 }
+
+.date-time {
+  font-size: 13px;
+}
+
+/* Default font for English text within tweet-body */
+.tweet-body {
+  font-size: 14px;
+}
+
+.center-icon {
+  display: inline-flex; /* Use flexbox to center the content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 40px; /* Set a fixed width */
+  height: 40px; /* Set a fixed height, making the button a circle */
+}
