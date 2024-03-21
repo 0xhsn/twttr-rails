@@ -1,9 +1,20 @@
-<div class="container text-center py-5" style="max-width: 540px">
-  <div class="mb-3">
-  <%= image_tag "doge.png", width: "100" %>
+<div class="container d-flex flex-column align-items-center text-center py-5" style="min-height: 100vh;">
+
+  <!-- Header Section -->
+  <div class="mb-3 flex-grow-1 d-flex flex-column justify-content-center">
+    <div class="mb-3"><%= image_tag "doge.png", width: "100" %></div>
+    <h1>Musk's X, but without your eyes bleed.™</h1>
   </div>
-  <div>
-  <%= link_to "sign up", new_user_registration_path, class: 'btn btn-dark btn-sm mb-4 rounded-pill tweet-btn' %>
-  <%= link_to "sign in", new_user_session_path,class: 'btn btn-dark btn-sm mb-4 rounded-pill tweet-btn' %>
-  <div>
+
+  <!-- Main Content Section -->
+  <div class="mb-4">
+    <%= link_to "sign up", new_user_registration_path, class: 'btn btn-outline-dark btn-lg mb-4 rounded-pill tweet-btn' %>
+    <%= link_to "sign in", new_user_session_path, class: 'btn btn-dark btn-lg mb-4 rounded-pill tweet-btn' %>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="mt-auto tiny-text text-secondary">
+    © <%= Time.now.year %> macdoos. all rights reserved.
+  </div>
+
 </div>
