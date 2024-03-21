@@ -6,9 +6,7 @@
       <%= render "shared/sidebar" %>
       <div class="col-6">
         <%= render "shared/tweet_form" %>
-        <% Tweet.find_each do |tweet| %>
-          <%= render "tweets/tweet", tweet: tweet %>
-        <% end %>
+        <%= render Tweet.order(created_at: :desc) %>
       </div>
       <div class="col">
       </div>
