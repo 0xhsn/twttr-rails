@@ -13,18 +13,16 @@
         <p class="mb-0 ml-1 text-dark tweet-body"><%= tweet_presenter.body %></p>
       </div>
     </div>
-    <div class="thumbs-component">
-      <div class="me-2">
-        <%= link_to "#", class: "material-icons text-secondary text-decoration-none arrow-hover" do %>
-          <i class="material-icons text-secondary text-decoration-none">expand_less</i>
+    <div class="thumbs-component" style="display: flex; align-items: center;">
+      <div class="me-2" style="display: flex; align-items: center;">
+        <%= link_to tweet_likes_path(tweet_presenter.tweet), data: { turbo_method: :post }, class: "material-icons text-secondary text-decoration-none arrow-hover" do %>
+          <% if tweet_presenter.likes.any? { |like| like.user_id == current_user.id } %>
+            <i class="material-icons text-secondary text-decoration-none">thumb_up</i>
+          <% else %>
+            <i class="material-icons text-secondary text-decoration-none">thumb_up_off_alt</i>
+          <% end %>
         <% end %>
-        <span class="text-secondary ms-2">1</span>
-      </div>
-      <div>
-        <%= link_to "#", class: "material-icons text-secondary text-decoration-none arrow-hover" do %>
-          <i class="material-icons text-secondary text-decoration-none">keyboard_arrow_down</i>
-        <% end %>
-        <span class="text-secondary ms-2">1</span>
+        <span class="text-secondary mb-0 ms-2"><%= tweet_presenter.likes.size %></span>
       </div>
     </div>
   </div>
