@@ -1,4 +1,4 @@
-# X Clone Notes
+# ex notes
 
 ## macOS Setup
 * `brew install postgresql`
@@ -19,3 +19,6 @@
 
 ## Tweet Model
 * `bundle exec rails g model tweet user:references body:string`
+
+## Likes
+* `bundle exec rails g migration add_uniqueness_constraint_to_likes`
