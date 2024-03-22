@@ -19,8 +19,8 @@
 
       <!-- List of Tweets (Bottom Section) -->
       <div class="row">
-        <div class="col-12">
-          <%= render Tweet.order(created_at: :desc) %>
+        <div class="col-12" id="tweets">
+          <%= render partial: "tweets/tweet", collection: @tweets, as: :tweet_presenter %>
         </div>
       </div>
     </div>
