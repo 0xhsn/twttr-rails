@@ -1,15 +1,31 @@
 <%= turbo_frame_tag dom_id(tweet_presenter.tweet) do %>
-  <div class="tweet py-4 px-3 d-flex align-items-center">
-    <div class="flex-shrink-0 me-3">
-      <% if tweet_presenter.user && tweet_presenter.avatar.attached? %>
-        <%= image_tag tweet_presenter.avatar, size: 48, class: "rounded-circle" %>
-      <% else %>
-        <%= image_tag "default_avatar.png", size: 48, class: "rounded-circle" %>
-      <% end %>
+  <div class="tweet py-4 px-3 d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center flex-grow-1">
+      <div class="flex-shrink-0 me-3">
+        <% if tweet_presenter.user && tweet_presenter.avatar.attached? %>
+          <%= image_tag tweet_presenter.avatar, size: 48, class: "rounded-circle" %>
+        <% else %>
+          <%= image_tag "default_avatar.png", size: 48, class: "rounded-circle" %>
+        <% end %>
+      </div>
+      <div class="tweet-body-container">
+        <span class="mb-1">@<%= tweet_presenter.username %></span>&nbsp;<span class="date-time fw-light text-secondary">• <%= tweet_presenter.created_at %></span>
+        <p class="mb-0 ml-1 text-dark tweet-body"><%= tweet_presenter.body %></p>
+      </div>
     </div>
-    <div class="flex-grow-1">
-      <span class="mb-1">@<%= tweet_presenter.username %></span>&nbsp;<span class="date-time fw-light text-secondary">• <%= tweet_presenter.created_at %></span>
-      <p class="mb-0 ml-1 text-dark tweet-body"><%= tweet_presenter.body %></p>
+    <div class="thumbs-component">
+      <div class="me-2">
+        <%= link_to "#", class: "material-icons text-secondary text-decoration-none arrow-hover" do %>
+          <i class="material-icons text-secondary text-decoration-none">expand_less</i>
+        <% end %>
+        <span class="text-secondary ms-2">1</span>
+      </div>
+      <div>
+        <%= link_to "#", class: "material-icons text-secondary text-decoration-none arrow-hover" do %>
+          <i class="material-icons text-secondary text-decoration-none">keyboard_arrow_down</i>
+        <% end %>
+        <span class="text-secondary ms-2">1</span>
+      </div>
     </div>
   </div>
 <% end %>

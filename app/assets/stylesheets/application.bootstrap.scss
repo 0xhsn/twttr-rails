@@ -37,3 +37,27 @@
   width: 40px; /* Set a fixed width */
   height: 40px; /* Set a fixed height, making the button a circle */
 }
+
+.tweet-body-container {
+  width: 300px; /* Adjust this width as needed */
+  overflow-wrap: break-word;
+}
+
+.thumbs-component {
+  width: 100px; /* Adjust this width as needed */
+  display: flex;
+  align-items: center;
+}
+
+.arrow-hover .material-icons {
+  border-radius: 50%; /* Makes the background round */
+  // padding: 8px; /* Adjusts the size of the circle */
+  transition: background-color 0.3s; /* Smooth transition for the background color */
+}
+
+.arrow-hover .material-icons:hover {
+  background-color: #e0e0e0; /* Change to your preferred hover background color */
+  cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+
+
