@@ -1,11 +1,11 @@
-        <div class="mb-3">
-          <a href="/" class="fs-4 text-decoration-none text-black fw-semibold mb-4"> @<%= current_user.username %> </a>
-        </div>
-        <%= form_with model: Tweet.new, url: tweets_path, method: :post, local: true, class: "w-100" do |f| %>
-          <%= f.text_area :body, placeholder: 'wassup?', class: 'form-control mb-3 border-0 w-100 tweet-input' %>
-          <div class="d-flex justify-content-end">
-            <%= f.button type: 'submit', class: 'btn btn-sm btn-dark rounded-circle center-icon mb-3' do %>
-              <span class="material-icons">arrow_forward_ios</span>
-            <% end %>
-          </div>
-        <% end %>
+<div class="mb-3 d-flex justify-content-center">
+  <a href="/" class="fs-4 text-decoration-none text-black fw-semibold mb-4">@<%= current_user.username %></a>
+</div>
+<%= form_with model: Tweet.new, url: tweets_path, method: :post, local: true, class: "w-100" do |f| %>
+  <%= f.text_area :body, placeholder: 'wassup?', class: 'form-control mb-3 border-0 w-100 tweet-input' %>
+  <div class="d-flex justify-content-end">
+    <%= f.button type: 'submit', class: 'btn btn-sm btn-dark rounded-circle center-icon mb-3' do %>
+      <span class="material-icons">arrow_forward_ios</span>
+    <% end %>
+  </div>
+<% end %>

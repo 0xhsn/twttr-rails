@@ -1,6 +1,6 @@
-<aside class="col side-navbar">
+<aside class="d-flex flex-column align-items-center justify-content-center side-navbar">
   <!-- Ensure this div takes the full width and centers its child -->
-  <div class="d-flex align-items-center justify-content-start mt-3 ms-4">
+  <div class="d-flex align-items-center justify-content-start mt-3">
     <%= link_to root_path do %>
       <% if current_user && current_user.avatar.attached? %>
         <%= image_tag current_user.avatar, size: "48x48", class: "rounded-circle" %>
