@@ -22,8 +22,8 @@
     <%= link_to tweet_likes_path(tweet_presenter.tweet), data: { 'turbo_method': 'post' }, class: "material-icons text-secondary text-decoration-none arrow-hover" do %>
       <i class="material-icons text-secondary text-decoration-none">thumb_up_off_alt</i>
     <% end %>
-    <% end %>
-  <span class="text-secondary mb-0 ms-2"><%= tweet_presenter.likes.size %></span>
+  <% end %>
+  <span class="text-secondary mb-0 ms-2"><%= tweet_presenter.likes_count %></span>
 </div>
   </div>
 <% end %>
