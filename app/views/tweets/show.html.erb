@@ -11,10 +11,24 @@
           <% end %>
         </div>
       </div>
-      <div class="tweet-body-container" style="flex-grow: 1; min-width: 0;">
-        <h2 class="fs-4 mb-1">@<%= @tweet.user.username %></span>&nbsp;<span class="date-time fw-light text-secondary">• <%= @tweet.created_at %></span>
-        <p class="mb-0 ml-1 text-dark tweet-body" style="word-wrap: break-word; overflow-wrap: break-word;"> <%= @tweet.body %> </p>
-      </div>
+      <%= turbo_frame_tag dom_id(@tweet_presenter.tweet) do %>
+        <div class="tweet py-4 px-1 px-md-3 d-flex align-items-center justify-content-between" style="width: 100%;">
+          <div style="flex-grow: 1; min-width: 0; display: flex; align-items: center;">
+            <div class="flex-shrink-0 me-2" style="max-width: 50px;">
+              <% if @tweet_presenter.user && @tweet_presenter.avatar.attached? %>
+                <%= image_tag @tweet_presenter.avatar, size: 48, class: "rounded-circle img-fluid" %>
+              <% else %>
+                <%= image_tag "default_avatar.png", size: 48, class: "rounded-circle img-fluid" %>
+              <% end %>
+            </div>
+            <div class="tweet-body-container" style="flex-grow: 1; min-width: 0;">
+              <span class="fs-4 mb-1">@<%= @tweet_presenter.username %></span>
+              <p class="fs-5 mb-0 ml-1 fw-light tweet-body" style="word-wrap: break-word; overflow-wrap: break-word;"> <%= @tweet_presenter.body %> </p>
+              <span class="date-time fw-light text-secondary"><%= @tweet_presenter.created_at %></span>&nbsp;<span class="date-time fw-light text-secondary">• <%= @tweet_presenter.tweet.created_at.strftime("%l:%M %p") %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </body>
 </html>

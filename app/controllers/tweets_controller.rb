@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+    @tweet_presenter = TweetPresenter.new(@tweet, current_user)
   end
 
   def create

@@ -15,16 +15,18 @@ RSpec.describe TweetPresenter, type: :presenter do
 
       it 'displays the shortened date format' do
         tweet = create(:tweet)
+        user = create(:user)
         tweet.update!(created_at: 2.days.ago)
-        expect(TweetPresenter.new(tweet).created_at).to eq('Sep 1')
+        expect(TweetPresenter.new(tweet, user).created_at).to eq('Sep 1')
       end
     end
 
     context 'when only few hours have passed' do
       it 'displays how many hours have passed' do
         tweet = create(:tweet)
+        user = create(:user)
         tweet.update!(created_at: 2.hours.ago)
-        expect(TweetPresenter.new(tweet).created_at).to eq('about 2 hours')
+        expect(TweetPresenter.new(tweet, user).created_at).to eq('about 2 hours')
       end
     end
   end

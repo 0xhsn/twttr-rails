@@ -4,11 +4,12 @@
 class TweetPresenter
   include ActionView::Helpers::DateHelper
 
-  def initialize(tweet)
+  def initialize(tweet, current_user)
     @tweet = tweet
+    @current_user = current_user
   end
 
-  attr_reader :tweet
+  attr_reader :tweet, :current_user
 
   delegate :user, :body, :likes_count, :likes, to: :tweet
   delegate :username, :avatar, to: :user
