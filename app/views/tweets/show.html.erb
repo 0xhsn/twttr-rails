@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <%= render "shared/head" %>
+  <body>
+    <div class="container py-4">
+      <!-- Sidebar (Top Section on Mobile) -->
+      <div class="row">
+        <div class="col-12 mb-3">
+          <%= link_to 'javascript:history.back()', class: "text-secondary text-decoration-none" do %>
+            <i class="material-icons">arrow_back</i>
+          <% end %>
+        </div>
+      </div>
+      <div class="tweet-body-container" style="flex-grow: 1; min-width: 0;">
+        <h2 class="fs-4 mb-1">@<%= @tweet.user.username %></span>&nbsp;<span class="date-time fw-light text-secondary">• <%= @tweet.created_at %></span>
+        <p class="mb-0 ml-1 text-dark tweet-body" style="word-wrap: break-word; overflow-wrap: break-word;"> <%= @tweet.body %> </p>
+      </div>
+    </div>
+  </body>
+</html>
